@@ -10,11 +10,42 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet var colorBoard: UIView!
+    @IBOutlet var redColorView: UIView!
+    @IBOutlet var greenColorView: UIView!
+    
+    @IBOutlet var redView: UIView!
+    @IBOutlet var greenView: UIView!
+    @IBOutlet var blueView: UIView!
+
+    @IBOutlet var redText: UITextView!
+    @IBOutlet var greenText: UITextView!
+    @IBOutlet var blueText: UITextView!
+    
+    @IBOutlet var redBegunok: UISlider!
+    @IBOutlet var greenBegun: UISlider!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        redBegunok.minimumValue = 0
+        redBegunok.maximumValue = 1
+        greenBegun.minimumValue = 0
+        greenBegun.maximumValue = 1
+        redBegunok.value = 0
+        greenBegun.value = 0
+        redText.text = String(redBegunok.value)
+        greenText.text = String(greenBegun.value)
     }
 
-
+    
+    @IBAction func redRun() {
+        redText.text = String(redBegunok.value)
+        redColorView.alpha = CGFloat(redBegunok.value)
+    }
+    
+    @IBAction func GreenRunner() {
+        greenText.text = String(greenBegun.value)
+        greenColorView.alpha = CGFloat(greenBegun.value)
+    }
 }
 
